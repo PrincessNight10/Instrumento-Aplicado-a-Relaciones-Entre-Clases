@@ -1,7 +1,39 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-
-class Auto {
+class Agencia{
+ID:
+nombre;
+Id_Reserva
 }
 
+class Reserva {
+Id_reserva;
+Finicio;
+Ffinal;
+Litros;
+Precio;
+Estado;
+DNI cliente;
+}
+
+
+class Automoviles{
+Matricula;
+Modelo;
+Color;
+Marca;
+Garaje;
+
+}
+class Clientes {
+DNI;
+Nombre;
+Direccion;
+Telefono;
+}
+Agencia "1"-- "0..*" Reserva
+Clientes "1" *-- "0..*"Reserva
+Reserva "1"*--"0..*"  Automoviles
+Agencia "1"--"0..*"  Automoviles
+Agencia "1"--"0..*"   Clientes
 @enduml
