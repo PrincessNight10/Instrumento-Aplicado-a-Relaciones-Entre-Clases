@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Clientes {
     public int DNI;
-   public String Nombre;
-    public String   Direccion;
+    public String Nombre;
+    public String Direccion;
     public String Telefono;
 
     public Clientes() {
@@ -14,6 +17,7 @@ public class Clientes {
         this.Direccion = direccion;
 
     }
+
     public int getDNI() {
         return DNI;
     }
@@ -46,4 +50,18 @@ public class Clientes {
         Telefono = telefono;
     }
 
-}
+
+    private static List<Clientes> listaClientes = new ArrayList<>();
+
+    public static Clientes obtenerClientePorDNI(String dni) {
+        for (Clientes cliente : listaClientes) {
+            if (String.valueOf(cliente.getDNI()).equals(dni)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+    }
+
+
+

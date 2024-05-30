@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Automoviles {
     private String matricula;
     private String modelo;
@@ -44,6 +47,7 @@ public class Automoviles {
         return marca;
     }
 
+
     public void setMarca(String marca) {
         this.marca = marca;
     }
@@ -54,5 +58,16 @@ public class Automoviles {
 
     public void setGaraje(String garaje) {
         this.garaje = garaje;
+    }
+
+    private static List<Automoviles> listaAutomoviles = new ArrayList<>();
+
+    public static Automoviles obtenerAutomovil(String matricula) {
+        for (Automoviles automovil : listaAutomoviles) {
+            if (automovil.getMatricula().equals(matricula)) {
+                return automovil;
+            }
+        }
+        return null;
     }
 }
