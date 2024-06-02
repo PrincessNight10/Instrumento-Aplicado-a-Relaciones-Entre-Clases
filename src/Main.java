@@ -31,7 +31,9 @@ public class Main {
                     System.out.println("Seleccione una opción para Agencias:");
                     System.out.println("a. Agregar Agencia");
                     System.out.println("b. Eliminar Agencia");
-                    System.out.println("c. Consultar Agencia");
+                    System.out.println("c. Listar Agencia");
+                    System.out.println("d. actualizar Agencia");
+
                     char subopcionAgencias = scanner.next().charAt(0);
                     scanner.nextLine(); // Consumir la nueva línea después de leer el carácter
                     // Consumir la nueva línea después de leer el carácter
@@ -54,6 +56,7 @@ public class Main {
 
                             System.out.println("Agencia agregada con éxito.");
                             break;
+
                         case 'b':
                             // Eliminar Agencia
                             if (agencias.isEmpty()) {
@@ -79,53 +82,59 @@ public class Main {
                                 System.out.println("ID: " + agencia.getId() + ", Nombre: " + agencia.getNombre());
                             }
                             break;
-                            case 'd':
-                                // Leer el ID de la agencia que se desea actualizar
-                                System.out.print("Ingrese el ID de la agencia que desea actualizar: ");
-                                int idAgenciaActualizar = scanner.nextInt();
-                                scanner.nextLine(); // Consumir la nueva línea
+
+                        case 'd':
+                            // Leer el ID de la agencia que se desea actualizar
+                            System.out.print("Ingrese el ID de la agencia que desea actualizar: ");
+                            int idAgenciaActualizar = scanner.nextInt();
+                            scanner.nextLine(); // Consumir la nueva línea
 
 // Buscar la agencia por su ID
-                                Agencia agenciaActualizar = null;
-                                for (Agencia agencia : agencias) {
-                                    if (agencia.getId() == idAgenciaActualizar) {
-                                        agenciaActualizar = agencia;
-                                        break;
-                                    }
+                            Agencia agenciaActualizar = null;
+                            for (Agencia agencia : agencias) {
+                                if (agencia.getId() == idAgenciaActualizar) {
+                                    agenciaActualizar = agencia;
+                                    break;
                                 }
+                            }
 
-                                if (agenciaActualizar != null) {
-                                    // Mostrar los detalles actuales de la agencia
-                                    System.out.println("Detalles actuales de la agencia:");
-                                    System.out.println("ID: " + agenciaActualizar.getId());
-                                    System.out.println("Nombre: " + agenciaActualizar.getNombre());
+                            if (agenciaActualizar != null) {
+                                // Mostrar los detalles actuales de la agencia
+                                System.out.println("Detalles actuales de la agencia:");
+                                System.out.println("ID: " + agenciaActualizar.getId());
+                                System.out.println("Nombre: " + agenciaActualizar.getNombre());
 
-                                    // Solicitar al usuario que ingrese los nuevos detalles
-                                    System.out.println("Ingrese los nuevos detalles de la agencia:");
-                                    System.out.print("Nuevo nombre: ");
-                                    String nuevoNombre = scanner.nextLine();
+                                // Solicitar al usuario que ingrese los nuevos detalles
+                                System.out.println("Ingrese los nuevos detalles de la agencia:");
+                                System.out.print("Nuevo nombre: ");
+                                String nuevoNombre = scanner.nextLine();
 
-                                    // Actualizar los atributos de la agencia
-                                    agenciaActualizar.setNombre(nuevoNombre);
+                                // Actualizar los atributos de la agencia
+                                agenciaActualizar.setNombre(nuevoNombre);
 
-                                    System.out.println("Agencia actualizada con éxito.");
-                                } else {
-                                    System.out.println("No se encontró ninguna agencia con el ID especificado.");
-                                }
+                                System.out.println("Agencia actualizada con éxito.");
+                            } else {
+                                System.out.println("No se encontró ninguna agencia con el ID especificado.");
+                            }
 
-                                break;
-                                default:
+                            break;
+                        default:
                             System.out.println("Opción no válida.");
                             break;
 
                     }
+                    break;
 
                 case 2:
                     //Automovil
                     System.out.println("Seleccione una opción para Automóviles:");
                     System.out.println("a. Agregar Automóvil");
                     System.out.println("b. Eliminar Automóvil");
+                    System.out.println("c. Listar Automóvil");
+                    System.out.println("d. Actualizar Automóvil");
+
                     char subopcionAutomoviles = scanner.next().charAt(0);
+                    scanner.nextLine();
 
                     switch (subopcionAutomoviles) {
                         case 'a':
@@ -190,7 +199,6 @@ public class Main {
                                     System.out.println("Marca: " + automovil.getMarca());
                                     System.out.println("Garaje: " + automovil.getGaraje());
                                     automovilEncontradoConsultar = true;
-                                    break; // Salir del bucle una vez que se haya encontrado el automóvil
                                 }
                             }
 
@@ -237,8 +245,9 @@ public class Main {
 
                                     System.out.println("Automóvil actualizado con éxito.");
                                     automovilEncontradoActualizar = true;
-                                    break; // Salir del bucle una vez que se haya actualizado el automóvil
+
                                 }
+
                             }
 
                             // Si no se encontró el automóvil, mostrar un mensaje de error
@@ -262,9 +271,11 @@ public class Main {
                     System.out.println("a. Agregar Cliente");
                     System.out.println("b. Eliminar Cliente");
                     System.out.println("c. Consultar Cliente");
+                    System.out.println("d. Actualizar Cliente");
+
 
                     char subopcionClientes = scanner.next().charAt(0);
-
+                    scanner.nextLine();
                     switch (subopcionClientes) {
                         case 'a':
                             System.out.println("Ingrese los detalles del cliente:");
@@ -299,7 +310,6 @@ public class Main {
                                     clientes.remove(cliente);
                                     clienteEncontradoBorrar = true;
                                     System.out.println("Cliente eliminado con éxito.");
-                                    break; // Salir del bucle una vez que se haya eliminado el cliente
                                 }
                             }
 
@@ -327,7 +337,7 @@ public class Main {
                                     System.out.println("Dirección: " + cliente.getDireccion());
                                     System.out.println("Teléfono: " + cliente.getTelefono());
                                     clienteEncontradoConsultar = true;
-                                    break; // Salir del bucle una vez que se haya encontrado el cliente
+
                                 }
                             }
 
@@ -335,6 +345,8 @@ public class Main {
                             if (!clienteEncontradoConsultar) {
                                 System.out.println("Cliente no encontrado.");
                             }
+                            break;
+
                         case 'd':
                             // Actualizar Cliente
                             System.out.println("Ingrese el DNI del cliente que desea actualizar:");
@@ -368,7 +380,7 @@ public class Main {
 
                                     System.out.println("Cliente actualizado con éxito.");
                                     clienteEncontradoActualizar = true;
-                                    break; // Salir del bucle una vez que se haya actualizado el cliente
+
                                 }
                             }
 
@@ -385,6 +397,9 @@ public class Main {
                             System.out.println("Seleccione una opción para Reservas:");
                             System.out.println("a. Agregar Reserva");
                             System.out.println("b. Eliminar Reserva");
+                            System.out.println("c. Actualizar Reserva");
+                            System.out.println("d. Listar Reserva");
+
                             char subopcionReservas = scanner.next().charAt(0);
                             scanner.nextLine(); // Consumir la nueva línea
 
@@ -403,7 +418,7 @@ public class Main {
                                     String litros = scanner.nextLine();
                                     System.out.print("Coloca la matrícula del carro: ");
                                     String matricula = scanner.nextLine();
-                                    Automoviles automoviles1 = Automoviles.obtenerAutomovil(matricula);
+                                    Automoviles automoviles1 = Automoviles.obtenerAutomoviles(matricula);
                                     if (automoviles1 == null) {
                                         System.out.println("Automóvil no encontrado.");
                                         break;
@@ -469,7 +484,7 @@ public class Main {
                                                 // Repetir el proceso para otros campos que desees actualizar
                                                 System.out.println("Reserva actualizada con éxito.");
                                                 reservaEncontrada = true;
-                                                break;
+
                                             }
                                         }
                                         if (!reservaEncontrada) {
@@ -495,7 +510,7 @@ public class Main {
 
                                 default:
                                     System.out.println("Opción no válida.");
-                                    break;
+
                             }
                             break;
                         case 5:

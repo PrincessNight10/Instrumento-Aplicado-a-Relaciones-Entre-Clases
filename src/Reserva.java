@@ -1,3 +1,4 @@
+
 public class Reserva {
     public int Id_reserva;
     public String Finicio;
@@ -5,8 +6,8 @@ public class Reserva {
     public String Litros;
     public String Precio;
     public String Estado;
-public Clientes losClientes = new Clientes();
-    public Automoviles losAutomoviles = new Automoviles();
+    public Clientes losClientes = new Clientes();
+    Automoviles losAutomoviles = new Automoviles("arg1", "arg2", "arg3", "arg4", "arg5");
 
     public Clientes getLosClientes() {
         return losClientes;
